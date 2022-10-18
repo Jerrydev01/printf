@@ -43,6 +43,35 @@ int print_str(const char *str)
 
 int print_char(char c)
 {
-	return (write(1, &c, 1));
+		return (write(1, &c, 1));
 }
 
+/**
+ * print_num - prints a number to stdout
+ * @num: number
+ *
+ * Return: number of characters printed to stdout
+ */
+
+int print_num(long num)
+{
+	unsigned int value;
+	int len = 0;
+
+	if (num < 0)
+	{
+		print_char('-');
+		len++;
+		num *= -1;
+	}
+if (value / 10 == 0)
+	{
+		print_char(value + 48);
+		len++;
+		return (len);
+	}
+	len += print_num(value / 10);
+	print_char((value % 10) + 48);
+	len++;
+	return (len);
+}
